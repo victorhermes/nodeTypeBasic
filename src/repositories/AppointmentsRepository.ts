@@ -28,7 +28,7 @@ class AppointmentsRepository {
     // public create(provider: string, date: Date): Appointment {
 
     public create({ provider, date }: CreateAppointmentDTO): Appointment {
-        const appointment = new Appointment(provider, date);
+        const appointment = new Appointment({ provider, date });
 
         this.appointments.push(appointment);
 

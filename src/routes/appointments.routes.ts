@@ -22,7 +22,9 @@ appointmentsRouter.post('/', (request, response) => {
     );
 
     if (findAppointmentSameDate) {
-        response.status(400).json({ message: 'Esse horário já foi agendado' });
+        return response
+            .status(400)
+            .json({ message: 'Esse horário já foi agendado' });
     }
 
     const appointment = appointmentsRepository.create({
