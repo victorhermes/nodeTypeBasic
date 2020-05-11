@@ -25,7 +25,10 @@ appointmentsRouter.post('/', (request, response) => {
         response.status(400).json({ message: 'Esse horário já foi agendado' });
     }
 
-    const appointment = appointmentsRepository.create(provider, parsedDate);
+    const appointment = appointmentsRepository.create({
+        provider,
+        date: parsedDate,
+    });
 
     return response.json(appointment);
 });
